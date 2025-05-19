@@ -1,0 +1,22 @@
+{
+    "apps": [
+      {
+        "name": "epicure-backend",
+        "script": "dist/server.js",
+        "env": {
+          "NODE_ENV": "production"
+        }
+      }
+    ],
+    "deploy": {
+      "production": {
+        "user": "ubuntu",
+        "host": "51.20.51.121",
+        "key": "~/.ssh/epicure-key.pem",
+        "ref": "origin/main",
+        "repo": "git@github.com:nirpr/Epicure_backend.git",
+        "path": "/home/ubuntu/epicure-backend",
+        "post-deploy": "npm install && npm run build && pm2 reload ecosystem.json --env production"
+      }
+    }
+  }
