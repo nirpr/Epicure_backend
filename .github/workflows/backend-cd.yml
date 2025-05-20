@@ -19,4 +19,5 @@ jobs:
           ssh-private-key: ${{ secrets.EPICURE_SSH_KEY }}
       
       - name: Deploy via PM2 on EC2
-        run: ssh ubuntu@51.20.51.121 'cd ~/epicure-backend && pm2 deploy ecosystem.json production'
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@51.20.51.121 'cd ~/epicure-backend && pm2 deploy ecosystem.json production'
