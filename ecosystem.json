@@ -15,7 +15,7 @@
         "ref": "origin/main",
         "repo": "git@github.com:nirpr/Epicure_backend.git",
         "path": "/home/ubuntu/epicure-backend",
-        "pre-deploy": "ssh-keyscan github.com >> ~/.ssh/known_hosts",
+        "pre-deploy": "ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts",
         "post-deploy": "npm install && npm run build && pm2 reload ecosystem.json --env production"
       }
     }
